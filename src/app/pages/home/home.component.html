@@ -1,10 +1,13 @@
 <section class="hero">
   <div class="hero-bg">
-    <img src="hero.jpg" alt="Hidden Leaf 108" />
+    <video autoplay muted loop playsinline poster="hero.jpg" [muted]="true">
+      <source src="IMG_3326.mp4" type="video/mp4">
+      <img src="hero.jpg" alt="Hidden Leaf" />
+    </video>
   </div>
 
   <div class="hero-content">
-    <h1 reveal [revealDelay]="200">Hidden Leaf 108</h1>
+    <h1 reveal [revealDelay]="200">Hidden Leaf</h1>
     <p reveal [revealDelay]="400">Step Into Serenity</p>
     <button class="cta" reveal [revealDelay]="600" magnetic>Plan your experience</button>
   </div>
