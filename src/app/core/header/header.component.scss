@@ -1,0 +1,219 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  transition: 
+    background 0.4s ease,
+    padding 0.4s ease,
+    backdrop-filter 0.4s ease;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 4rem;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+
+    .logo img {
+      filter: none;
+    }
+
+    .nav a {
+      color: #333;
+
+      &:hover {
+        color: #1a1a1a;
+      }
+    }
+
+    .cta-link {
+      color: #333;
+      border-color: #333;
+
+      &:hover {
+        background: #1a1a1a;
+        color: white;
+        border-color: #1a1a1a;
+      }
+    }
+  }
+
+  @media (max-width: 968px) {
+    padding: 1rem 1.5rem;
+
+    &.scrolled {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+
+  img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.4s ease, height 0.4s ease;
+
+    @media (max-width: 968px) {
+      height: 40px;
+    }
+  }
+
+  .logo-white {
+    opacity: 1;
+  }
+
+  .logo-dark {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+  }
+
+  .scrolled & {
+    img {
+      height: 45px;
+
+      @media (max-width: 968px) {
+        height: 36px;
+      }
+    }
+
+    .logo-white {
+      opacity: 0;
+    }
+
+    .logo-dark {
+      opacity: 1;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 2.5rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+}
+
+.cta-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: 
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    background: white;
+    color: #1a1a1a;
+    border-color: white;
+  }
+
+  @media (max-width: 968px) {
+    padding: 0.6rem 1rem;
+    font-size: 0.65rem;
+  }
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: #333;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+  }
+}

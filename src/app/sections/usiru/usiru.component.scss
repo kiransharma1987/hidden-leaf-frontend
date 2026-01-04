@@ -1,0 +1,106 @@
+.usiru {
+  background: #ffffff;
+}
+
+.usiru__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usiru__image {
+  padding: 4rem;
+  overflow: hidden;
+
+  @media (max-width: 968px) {
+    padding: 0;
+    order: 1;
+  }
+}
+
+.usiru__image img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+
+  @media (max-width: 968px) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.usiru__content {
+  padding: 6rem;
+  max-width: 520px;
+
+  @media (max-width: 968px) {
+    padding: 3.5rem 2rem 4.5rem;
+    max-width: none;
+    order: 2;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  letter-spacing: 0.14em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
+  letter-spacing: 0.3em;
+  color: #777;
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.description {
+  margin-top: 2.5rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.9;
+  color: #444;
+
+  @media (max-width: 968px) {
+    margin-top: 2rem;
+  }
+}
+
+.meta {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3.5rem;
+
+  @media (max-width: 968px) {
+    margin-top: 2.5rem;
+    gap: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.meta label {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: #888;
+  display: block;
+}
+
+.meta p {
+  margin-top: 0.5rem;
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
+  color: #444;
+  line-height: 1.6;
+}

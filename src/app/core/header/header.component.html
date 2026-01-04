@@ -1,0 +1,26 @@
+<header [class.scrolled]="isScrolled">
+  <a href="/" class="logo" (click)="scrollToTop($event)">
+    <img src="/logo-white.png" alt="Hidden Leaf 108" class="logo-white" />
+    <img src="/logo.png" alt="Hidden Leaf 108" class="logo-dark" />
+  </a>
+  
+  <nav class="nav">
+    <a (click)="scrollTo('hasiru', $event)" [class.active]="activeSection === 'hasiru'">Hasiru</a>
+    <a (click)="scrollTo('usiru', $event)" [class.active]="activeSection === 'usiru'">Usiru</a>
+    <a (click)="scrollTo('kudli', $event)" [class.active]="activeSection === 'kudli'">Kudli</a>
+    <a (click)="scrollTo('tunga-bhadra', $event)" [class.active]="activeSection === 'tunga-bhadra'">Tunga-Bhadra</a>
+  </nav>
+
+  <a (click)="scrollTo('contact', $event)" class="cta-link">Book Now</a>
+</header>
+
+<!-- Scroll to Top Button -->
+<button 
+  class="scroll-to-top" 
+  [class.visible]="showScrollTop"
+  (click)="scrollToTop()"
+  aria-label="Scroll to top">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>

@@ -1,0 +1,184 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    inset: 0;
+  }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.5) 85%,
+    rgba(30, 32, 28, 0.85) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  padding-bottom: 6rem;
+
+  @media (max-width: 480px) {
+    padding: 0 1.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+// Scroll indicator
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  
+  span {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  
+  @media (max-width: 480px) {
+    bottom: 2rem;
+    
+    .scroll-line {
+      height: 30px;
+    }
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+h1 {
+  font-size: clamp(2.2rem, 8vw, 4.2rem);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+
+p {
+  margin: 1.5rem 0 2.5rem;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+
+  @media (max-width: 480px) {
+    margin: 1rem 0 2rem;
+  }
+}
+
+button.cta {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  padding: 1rem 2.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 0.9rem 2rem;
+    font-size: 0.7rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: #1a1a1a;
+    border-color: white;
+
+    &::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* TEMP FOOTER */
+.footer {
+  height: 60vh;
+  background: #0f1a14;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
